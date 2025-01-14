@@ -4,7 +4,7 @@ import Biere from "../../assets/biere.jpg";
 import BeerModal from "./BeerModal";
 
 export default function BeerCard({ beer }: { beer: BeerResponseBody }) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
