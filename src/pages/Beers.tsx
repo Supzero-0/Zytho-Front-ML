@@ -26,14 +26,18 @@ export default function Beers() {
     }, []);
 
     if (loading) {
-        return (<div className="flex justify-center items-center min-h-[50vh]">
-            <div className="animate-spin rounded-full h-12 w-12 border-4 border-amber-900 border-t-transparent"></div>
-        </div>);
+        return (
+            <div className="flex justify-center items-center min-h-[50vh]">
+                <div className="animate-spin rounded-full h-12 w-12 border-4 border-amber-900 border-t-transparent"></div>
+            </div>
+        );
     }
     if (error) {
-        return (<div className="text-center text-red-600">
-            Une erreur est survenue lors du chargement des bières.
-        </div>);
+        return (
+            <div className="text-center text-red-600">
+                Une erreur est survenue lors du chargement des bières.
+            </div>
+        );
     }
 
     return (
