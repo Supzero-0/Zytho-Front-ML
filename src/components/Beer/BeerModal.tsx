@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
-import { BeerResponseBody } from "../interfaces/beerInterface";
-import Biere from "../assets/biere.jpg";
+import { BeerResponseBody } from "../../interfaces/beerInterface";
+import Biere from "../../assets/biere.jpg";
 
-export default function BeerCard({ beer }: { beer: BeerResponseBody }) {
+export default function BeerModal({ beer, closeModal }: { beer: BeerResponseBody, closeModal: () => void }) {
     return (
-        <Link to={`/beers/${beer.id_beer}`} className="group">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform group-hover:scale-105">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-md">
                 <div className="aspect-w-2 aspect-h-3 w-full overflow-hidden bg-gray-200">
                     <img
                         src={Biere}
@@ -20,8 +19,9 @@ export default function BeerCard({ beer }: { beer: BeerResponseBody }) {
                         <span className="text-sm font-medium text-amber-700">{beer.price}€</span>
                         <span className="text-sm text-gray-500">{beer.abv}% ABV</span>
                     </div>
+                    <button onClick={closeModal} className="mt-4 px-4 py-2 bg-amber-900 text-white rounded-lg">Fermer</button>
                 </div>
             </div>
-        </Link>
-    );
+        </div>
+    )
 }

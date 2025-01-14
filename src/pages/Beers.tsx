@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BeerResponseBody } from "../interfaces/beerInterface";
 import { BeerService } from "../services/beerService";
-import BeerCard from "../components/BeerCard";
+import BeerCard from "../components/Beer/BeerCard";
 
 export default function Beers() {
     const [beers, setBeers] = useState<BeerResponseBody[]>([]);
