@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BreweryResponseBody } from "../interfaces/breweryInterface";
 import { BreweryService } from "../services/breweryService";
-import BreweryCard from "../components/BreweryCard";
+import BreweryCard from "../components/Brewery/BreweryCard";
 
 export default function Breweries() {
     const [breweries, setBreweries] = useState<BreweryResponseBody[]>([]);

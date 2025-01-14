@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BreweryResponseBody } from '../interfaces/breweryInterface';
+import { BreweryResponseBody } from '../../interfaces/breweryInterface';
 import { MapPin } from 'lucide-react';
 import Brasserie from '../assets/brasserie.jpeg';
 import BreweryModal from './BreweryModal';

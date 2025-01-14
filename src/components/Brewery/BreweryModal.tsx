@@ -1,5 +1,5 @@
 import { MapPin } from 'lucide-react';
-import { BreweryResponseBody } from '../interfaces/breweryInterface';
+import { BreweryResponseBody } from '../../interfaces/breweryInterface';
 import Brasserie from '../assets/brasserie.jpeg';
 
 export default function BreweryModal({ brewery, closeModal }: { brewery: BreweryResponseBody, closeModal: () => void }) {
