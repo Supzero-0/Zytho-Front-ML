@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BreweryResponseBody } from '../../interfaces/breweryInterface';
 import { MapPin } from 'lucide-react';
-import Brasserie from '../assets/brasserie.jpeg';
+import Brasserie from '../../assets/brasserie.jpeg';
 import BreweryModal from './BreweryModal';
 
 export default function BreweryCard({ brewery }: { brewery: BreweryResponseBody }) {
