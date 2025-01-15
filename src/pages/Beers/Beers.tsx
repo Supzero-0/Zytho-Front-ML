@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { BeerResponseBody } from "../interfaces/beerInterface";
-import { BeerService } from "../services/beerService";
-import BeerCard from "../components/Beer/BeerCard";
+import { BeerResponseBody } from "../../interfaces/beerInterface";
+import { BeerService } from "../../services/beerService";
+import BeerCard from "../../components/Beer/BeerCard";
+import { Link } from "react-router-dom";
 
 export default function Beers() {
     const [beers, setBeers] = useState<BeerResponseBody[]>([]);
@@ -42,7 +43,10 @@ export default function Beers() {
 
     return (
         <div className="max-w-7xl mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold text-amber-900 mb-8">Nos Bières Artisanales</h1>
+            <div className="flex justify-between items-center mb-8">
+                <h1 className="text-3xl font-bold text-amber-900">Nos Bières Artisanales</h1>
+                <Link to="/beers/add" className="bg-amber-900 text-white px-4 py-2 rounded-md">Ajouter une bière</Link>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {beers?.map((beer: any) => (<BeerCard key={beer.id_beer} beer={beer} />))}
             </div>
