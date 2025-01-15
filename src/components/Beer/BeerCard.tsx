@@ -3,7 +3,7 @@ import { BeerResponseBody } from "../../interfaces/beerInterface";
 import Biere from "../../assets/biere.jpg";
 import BeerModal from "./BeerModal";
 
-export default function BeerCard({ beer }: { beer: BeerResponseBody }) {
+export default function BeerCard({ beer, reload }: { beer: BeerResponseBody, reload: () => void }) {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const openModal = () => setIsModalOpen(true);
@@ -32,7 +32,7 @@ export default function BeerCard({ beer }: { beer: BeerResponseBody }) {
             </button>
 
             {isModalOpen && (
-                <BeerModal beer={beer} closeModal={closeModal} />
+                <BeerModal beer={beer} closeModal={closeModal} reload={reload} />
             )}
         </>
     );

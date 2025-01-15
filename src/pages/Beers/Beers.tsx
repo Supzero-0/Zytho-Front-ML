@@ -11,21 +11,21 @@ export default function Beers() {
     const [filteredBeers, setFilteredBeers] = useState<BeerResponseBody[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>("");
 
-    useEffect(() => {
-        const fetchBeers = async () => {
-            try {
-                setLoading(true);
-                const data = await BeerService.getBeers();
-                setBeers(data);
-                setFilteredBeers(data);
-                setError(null);
-            } catch (err: any) {
-                setError("Erreur lors de la récupération des bières.");
-            } finally {
-                setLoading(false);
-            }
-        };
+    const fetchBeers = async () => {
+        try {
+            setLoading(true);
+            const data = await BeerService.getBeers();
+            setBeers(data);
+            setFilteredBeers(data);
+            setError(null);
+        } catch (err: any) {
+            setError("Erreur lors de la récupération des bières.");
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    useEffect(() => {
         fetchBeers();
     }, []);
 
@@ -73,7 +73,7 @@ export default function Beers() {
                 <Link to="/beers/add" className="bg-amber-900 text-white px-4 py-2 rounded-md mb-4 sm:mb-0">Ajouter une bière</Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filteredBeers?.map((beer: any) => (<BeerCard key={beer.id_beer} beer={beer} />))}
+                {filteredBeers?.map((beer: any) => (<BeerCard key={beer.id_beer} beer={beer} reload={fetchBeers} />))}
             </div>
         </div>
     );
