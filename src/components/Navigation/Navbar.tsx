@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Beer, Building2, Search } from 'lucide-react';
+import { Beer, Building2 } from 'lucide-react';
 
 export default function Navbar() {
   return (
@@ -19,10 +19,6 @@ export default function Navbar() {
             <Link to="/breweries" className="flex items-center space-x-1 hover:text-amber-200">
               <Building2 className="h-5 w-5" />
               <span>Brasseries</span>
-            </Link>
-            <Link to="/search" className="flex items-center space-x-1 hover:text-amber-200">
-              <Search className="h-5 w-5" />
-              <span>Recherche</span>
             </Link>
           </div>
         </div>

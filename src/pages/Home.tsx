@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Beer, Building2, Search } from 'lucide-react';
+import { Beer, Building2 } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <Link
           to="/beers"
           className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
@@ -33,17 +33,6 @@ export default function Home() {
           <h2 className="text-xl font-semibold text-amber-900 mb-2">Brasseries</h2>
           <p className="text-gray-600 text-center">
             Découvrez les brasseries artisanales et leur histoire unique.
-          </p>
-        </Link>
-
-        <Link
-          to="/search"
-          className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
-        >
-          <Search className="h-12 w-12 text-amber-600 mb-4" />
-          <h2 className="text-xl font-semibold text-amber-900 mb-2">Recherche Avancée</h2>
-          <p className="text-gray-600 text-center">
-            Trouvez la bière parfaite selon vos critères.
           </p>
         </Link>
       </div>
