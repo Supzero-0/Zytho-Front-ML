@@ -3,7 +3,7 @@ import { BreweryRequestBody } from "../../interfaces/breweryInterface";
 import { BreweryService } from "../../services/breweryService";
 import { redirect } from "react-router-dom";
 
-export default function CreationBrewery(): JSX.Element {
+export default function BreweryAdd(): JSX.Element {
     const [brewery, setBrewery] = useState<BreweryRequestBody>({
         name: "",
         country: "",
