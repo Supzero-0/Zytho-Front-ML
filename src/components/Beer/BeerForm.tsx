@@ -13,13 +13,9 @@ export default function BeerForm({ initialData, onSubmit }: { initialData?: Beer
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
     useEffect(() => {
-        console.log(initialData);
-
         if (initialData) {
             setBeer(initialData);
         }
-        console.log(beer);
-
     }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
