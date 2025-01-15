@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BeerRequestBody } from "../../interfaces/beerInterface";
 import { BeerService } from "../../services/beerService";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function BeerAdd(): JSX.Element {
     const [beer, setBeer] = useState<BeerRequestBody>({
@@ -12,6 +12,7 @@ export default function BeerAdd(): JSX.Element {
         id_brewery: 1,
     });
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
+    const navigate = useNavigate();
 
     const validateField = (name: string, value: any) => {
         switch (name) {
@@ -54,15 +55,17 @@ export default function BeerAdd(): JSX.Element {
         });
     };
 
-    const handleCreate = async () => {
+    const handleCreate = async (event: React.FormEvent) => {
+        event.preventDefault();
+
         await BeerService.createBeer(beer);
-        return redirect("/beers");
+        navigate("/beers");
     };
 
     return (
         <div className="max-w-7xl mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold text-amber-900 mb-8">Nouvelle Brasserie Partenaire</h1>
-            <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <form onSubmit={handleCreate} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="flex flex-col">
                     <label className="text-amber-900 font-semibold" htmlFor="name">Nom</label>
                     <input onChange={handleChange} className="border border-amber-900 rounded-md p-2" type="text" id="name" />
@@ -88,7 +91,7 @@ export default function BeerAdd(): JSX.Element {
                     <input onChange={handleChange} className="border border-amber-900 rounded-md p-2" type="text" id="id_brewery" />
                     {errors.id_brewery && <span className="error">{errors.id_brewery}</span>}
                 </div>
-                <button onClick={handleCreate} className="bg-amber-900 text-white px-4 py-2 rounded-md">Ajouter</button>
+                <button className="bg-amber-900 text-white px-4 py-2 rounded-md">Ajouter</button>
             </form>
         </div>
     )
