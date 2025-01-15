@@ -11,21 +11,21 @@ export default function Breweries() {
     const [filteredBreweries, setFilteredBreweries] = useState<BreweryResponseBody[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>("");
 
-    useEffect(() => {
-        const fetchBreweries = async () => {
-            try {
-                setLoading(true);
-                const data = await BreweryService.getBreweries();
-                setBreweries(data);
-                setFilteredBreweries(data);
-                setError(null);
-            } catch (err: any) {
-                setError("Erreur lors de la récupération des brasseries.");
-            } finally {
-                setLoading(false);
-            }
-        };
+    const fetchBreweries = async () => {
+        try {
+            setLoading(true);
+            const data = await BreweryService.getBreweries();
+            setBreweries(data);
+            setFilteredBreweries(data);
+            setError(null);
+        } catch (err: any) {
+            setError("Erreur lors de la récupération des brasseries.");
+        } finally {
+            setLoading(false);
+        }
+    };
 
+    useEffect(() => {
         fetchBreweries();
     }, []);
 
@@ -75,7 +75,7 @@ export default function Breweries() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredBreweries?.map((brewery) => (
-                    <BreweryCard key={brewery.id_brewery} brewery={brewery} />
+                    <BreweryCard key={brewery.id_brewery} brewery={brewery} reload={fetchBreweries} />
                 ))}
             </div>
         </div>

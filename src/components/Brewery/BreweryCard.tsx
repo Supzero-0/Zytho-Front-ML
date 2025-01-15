@@ -4,7 +4,7 @@ import { MapPin } from 'lucide-react';
 import Brasserie from '../../assets/brasserie.jpeg';
 import BreweryModal from './BreweryModal';
 
-export default function BreweryCard({ brewery }: { brewery: BreweryResponseBody }) {
+export default function BreweryCard({ brewery, reload }: { brewery: BreweryResponseBody, reload: () => void }) {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const openModal = () => setIsModalOpen(true);
@@ -33,7 +33,7 @@ export default function BreweryCard({ brewery }: { brewery: BreweryResponseBody 
             </button>
 
             {isModalOpen && (
-                <BreweryModal brewery={brewery} closeModal={closeModal} />
+                <BreweryModal brewery={brewery} closeModal={closeModal} reload={reload} />
             )}
         </>
     );

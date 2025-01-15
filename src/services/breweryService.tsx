@@ -13,7 +13,14 @@ const createBrewery = async (brewery: BreweryRequestBody): Promise<BreweryReques
     return response.data;
 }
 
+// Update d'une bière
+const updateBrewery = async (brewery: BreweryResponseBody): Promise<BreweryResponseBody> => {
+    const response = await apiClient.put(`/breweries/${brewery.id_brewery}`, brewery);
+    return response.data;
+};
+
 export const BreweryService = {
     getBreweries,
     createBrewery,
+    updateBrewery,
 };
