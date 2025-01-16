@@ -15,6 +15,11 @@ export default function BreweryModal({ brewery, closeModal, reload }: { brewery:
         reload();
     };
 
+    const handleDelete = async () => {
+        await BreweryService.deleteBrewery(brewery.id_brewery);
+        reload();
+    };
+
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-md">
@@ -36,11 +41,13 @@ export default function BreweryModal({ brewery, closeModal, reload }: { brewery:
                                 <span className="text-sm">{brewery.country}</span>
                             </div>
                             <p className="mt-2 text-sm text-gray-500">Fondée en {new Date(brewery.created_at).getFullYear()}</p>
-                            <button onClick={() => setIsEditing(true)} className="bg-amber-900 text-white px-4 py-2 rounded-md">Modifier</button>
+                            <div className="mt-4 flex justify-between space-x-2">
+                                <button onClick={handleDelete} className="bg-red-600 text-white px-4 py-2 rounded-md">Supprimer</button>
+                                <button onClick={() => setIsEditing(true)} className="bg-amber-900 text-white px-4 py-2 rounded-md">Modifier</button>
+                            </div>
                         </>
                     )}
-
-                    <button onClick={closeModal} className="mt-4 px-4 py-2 bg-amber-900 text-white rounded-lg">Fermer</button>
+                    <button onClick={closeModal} className="mt-4 px-4 py-2 w-full bg-gray-600 text-white rounded-lg">Fermer</button>
                 </div>
             </div>
         </div>

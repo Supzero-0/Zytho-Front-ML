@@ -19,8 +19,14 @@ const updateBrewery = async (brewery: BreweryResponseBody): Promise<BreweryRespo
     return response.data;
 };
 
+// Suppression d'une bière
+const deleteBrewery = async (id_brewery: number): Promise<void> => {
+    await apiClient.delete(`/breweries/${id_brewery}`);
+};
+
 export const BreweryService = {
     getBreweries,
     createBrewery,
     updateBrewery,
+    deleteBrewery,
 };
