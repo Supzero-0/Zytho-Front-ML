@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Beer, Building2 } from 'lucide-react';
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <div className="space-y-12">
       <div className="text-center">

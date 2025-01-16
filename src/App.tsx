@@ -6,7 +6,7 @@ import BeerAdd from './pages/Beers/BeerAdd';
 import Breweries from './pages/Breweries/Breweries';
 import BreweryAdd from './pages/Breweries/BreweryAdd';
 
-function App() {
+function App(): JSX.Element {
 
   return (
     <BrowserRouter>
@@ -17,7 +17,6 @@ function App() {
           <Route path="/beers/add" element={<BeerAdd />} />
           <Route path="/breweries" element={<Breweries />} />
           <Route path="/breweries/add" element={<BreweryAdd />} />
-          <Route path="/search" element={<div>Search</div>} />
         </Route>
       </Routes>
     </BrowserRouter>

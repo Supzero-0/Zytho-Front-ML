@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Beer, Building2 } from 'lucide-react';
 
-export default function Navbar() {
+export default function Navbar(): JSX.Element {
   return (
     <nav className="bg-amber-900 text-amber-50">
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">

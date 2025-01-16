@@ -4,7 +4,7 @@ import { BreweryService } from "../../services/breweryService";
 import BreweryCard from "../../components/Brewery/BreweryCard";
 import { Link } from "react-router-dom";
 
-export default function Breweries() {
+export default function Breweries(): JSX.Element {
     const [breweries, setBreweries] = useState<BreweryResponseBody[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);

@@ -4,7 +4,7 @@ import { BeerService } from "../../services/beerService";
 import BeerCard from "../../components/Beer/BeerCard";
 import { Link } from "react-router-dom";
 
-export default function Beers() {
+export default function Beers(): JSX.Element {
     const [beers, setBeers] = useState<BeerResponseBody[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
