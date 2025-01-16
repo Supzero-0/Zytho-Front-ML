@@ -24,9 +24,16 @@ const deleteBeer = async (id_beer: number): Promise<void> => {
     await apiClient.delete(`/beers/${id_beer}`);
 };
 
+// Récupération des bières par brasserie
+const getBeersByBrewery = async (breweryId: number): Promise<BeerResponseBody[]> => {
+    const response = await apiClient.get(`/breweries/${breweryId}/beers`);
+    return response.data;
+};
+
 export const BeerService = {
     getBeers,
     createBeer,
     updateBeer,
     deleteBeer,
+    getBeersByBrewery,
 };
