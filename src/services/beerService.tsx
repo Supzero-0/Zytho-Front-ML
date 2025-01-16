@@ -19,8 +19,14 @@ const updateBeer = async (beer: BeerResponseBody): Promise<BeerResponseBody> => 
     return response.data;
 };
 
+// Suppression d'une bière
+const deleteBeer = async (id_beer: number): Promise<void> => {
+    await apiClient.delete(`/beers/${id_beer}`);
+};
+
 export const BeerService = {
     getBeers,
     createBeer,
     updateBeer,
+    deleteBeer,
 };
