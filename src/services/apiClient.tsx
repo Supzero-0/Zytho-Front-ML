@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const apiClient = axios.create({
-    baseURL: 'http://localhost:3000/api/v1',
+    baseURL: 'zythologue-beercraftapi-production.up.railway.app/api/v1',
     timeout: 5000,
     headers: {
         'Content-Type': 'application/json',
